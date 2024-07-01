@@ -6,12 +6,18 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { AlignJustify, CircleUser, Github } from "lucide-react";
+import { AlignJustify, CircleUser, Github, LogOut } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import Image from "next/image";
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { AiOutlineMenu } from "react-icons/ai";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const { data, status } = useSession();
@@ -22,16 +28,16 @@ const Header = () => {
         <h1 className="text-2xl text-primary font-semibold ">trips.co</h1>
       </div>
 
-      <Sheet>
-        <SheetTrigger>
-          <div className="flex items-center w-fit p-2 gap-3 justify-center border rounded-3xl">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <div className="flex items-center cursor-pointer hover:bg-secondary focus:border-red-500 border w-fit p-2 gap-3 justify-center  rounded-3xl">
             <AiOutlineMenu size={32} className="text-primary" />
 
             {status === "authenticated" && data.user && (
               <Image
                 src={data.user.image!}
-                width={36}
-                height={36}
+                width={40}
+                height={40}
                 alt={data.user.name!}
                 className="rounded-full"
               />
@@ -41,46 +47,46 @@ const Header = () => {
               <CircleUser className="text-primary" size={36} />
             )}
           </div>
-        </SheetTrigger>
-        <SheetContent>
-          <SheetHeader className="mb-10"></SheetHeader>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="hover:bg-none p-5">
           {status === "unauthenticated" ? (
             <div className="flex flex-col items-center justify-center gap-5 ">
-              <button
-                type="button"
+              <h2 className="font-semibold text-lg">Olá! Faça seu Login.</h2>
+              <DropdownMenuItem
                 onClick={() => {
                   signIn("google");
                 }}
-                className="py-2 px-4 max-w-md flex justify-center items-center gap-3 border  hover:bg-muted    w-full text-center text-base font-semibold focus:outline-none  rounded-lg"
+                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 border bg-white hover:bg-muted  w-full text-center text-base font-semibold focus:outline-none  rounded-lg"
               >
                 <FcGoogle size={25} />
-                Login com Google
-              </button>
-              <button
-                type="button"
+              </DropdownMenuItem>
+              <DropdownMenuItem
                 onClick={() => {
                   signIn("github");
                 }}
-                className="py-2 px-4 max-w-md flex justify-center items-center gap-3 bg-gray-600 hover:bg-gray-700   text-white w-full text-center text-base font-semibold    rounded-lg"
+                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 bg-gray-600 hover:bg-gray-700   text-white w-full text-center text-base font-semibold    rounded-lg"
               >
                 <Github size={25} />
-                Login com GitHub
-              </button>
+              </DropdownMenuItem>
             </div>
           ) : (
-            <div>
-              <h1>Ola {data?.user?.name}</h1>{" "}
-              <button
+            <div className="flex flex-col items-center justify-center gap-5 ">
+              <h1 className="font-semibold text-lg">
+                Olá, {data?.user?.name}!
+              </h1>{" "}
+              <DropdownMenuItem
                 onClick={() => {
                   signOut();
                 }}
+                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 bg-primaryDarker    text-white w-full hover:bg-primary text-center text-base font-semibold    rounded-lg"
               >
                 Logout
-              </button>
+                <LogOut size={25} />
+              </DropdownMenuItem>
             </div>
           )}
-        </SheetContent>
-      </Sheet>
+        </DropdownMenuContent>
+      </DropdownMenu>
     </div>
   );
 };
