@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { NextAuthProvider } from "@/providers/auth";
 import Header from "../components/header";
+import Footer from "@/components/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -24,7 +25,8 @@ export default function RootLayout({
       <body className={poppins.className}>
         <NextAuthProvider>
           <Header />
-          {children}
+          <div className="flex-1">{children}</div>
+          <Footer />
         </NextAuthProvider>
       </body>
     </html>
