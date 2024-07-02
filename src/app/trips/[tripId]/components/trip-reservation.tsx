@@ -2,6 +2,7 @@ import { DatePicker } from "@/components/date-picker";
 import { Button } from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import { Trip } from "@prisma/client";
+import { User2 } from "lucide-react";
 import React from "react";
 
 interface TripReservationProps {
@@ -19,7 +20,7 @@ const TripReservation = ({ trip }: TripReservationProps) => {
         <Input
           placeholder={`Número de hospedes (max: ${trip.maxGuests})`}
           className="mt-4"
-        />
+        ></Input>
 
         <div className="flex justify-between mt-3">
           <p className="font-medium text-sm text-primaryDarker">Total: </p>
