@@ -12,7 +12,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-export function DatePicker() {
+export function DatePicker({ placeholder = "Data de ida" }) {
   const [date, setDate] = React.useState<Date>();
 
   return (
@@ -30,7 +30,7 @@ export function DatePicker() {
             format(date, "PPP", { locale: ptBR })
           ) : (
             <span className="text-sm font-normal text-black/20 ">
-              Data de ida
+              {placeholder}
             </span>
           )}
         </Button>
