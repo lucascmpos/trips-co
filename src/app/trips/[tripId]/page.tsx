@@ -25,7 +25,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
   if (!trip) return null;
 
   return (
-    <div>
+    <div className="lg:container mx-auto">
       <TripHeader trip={trip} />
 
       <TripReservation trip={trip} />
