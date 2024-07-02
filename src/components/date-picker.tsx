@@ -21,8 +21,8 @@ export function DatePicker({ placeholder = "Data de ida" }) {
         <Button
           variant={"outline"}
           className={cn(
-            "w-full justify-start border border-gray-300 bg-white text-left font-normal hover:bg-white",
-            !date && "text-muted-foreground"
+            "w-full justify-start border border-gray-300 text-primaryDarker bg-white text-left font-normal hover:bg-white",
+            !date && "text-black/20"
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
