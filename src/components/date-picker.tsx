@@ -21,7 +21,7 @@ export function DatePicker() {
         <Button
           variant={"outline"}
           className={cn(
-            "w-full justify-start text-left font-normal",
+            "w-full justify-start border border-gray-300 bg-white text-left font-normal",
             !date && "text-muted-foreground"
           )}
         >
@@ -29,7 +29,9 @@ export function DatePicker() {
           {date ? (
             format(date, "PPP", { locale: ptBR })
           ) : (
-            <span>Data de ida</span>
+            <span className="text-sm font-normal text-black/20 ">
+              Data de ida
+            </span>
           )}
         </Button>
       </PopoverTrigger>
