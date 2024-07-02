@@ -31,7 +31,7 @@ const Header = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <div className="flex items-center cursor-pointer hover:bg-secondary focus:border-red-500 border w-fit p-2 gap-3 justify-center  rounded-3xl">
-            <AiOutlineMenu size={32} className="text-primary" />
+            <AiOutlineMenu size={28} className="text-primary" />
 
             {status === "authenticated" && data.user && (
               <Image

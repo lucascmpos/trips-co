@@ -1,3 +1,4 @@
+"use client";
 import CurrencyInput from "@/components/currency-input";
 import { DatePicker } from "@/components/date-picker";
 import SearchButton from "@/components/search-button";
