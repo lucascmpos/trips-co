@@ -1,3 +1,4 @@
+"use server";
 import TripItem from "@/components/trip-item";
 import { prisma } from "@/lib/prisma";
 import { Trip } from "@prisma/client";

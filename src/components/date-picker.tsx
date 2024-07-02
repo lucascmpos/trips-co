@@ -1,48 +1,40 @@
-"use client";
-import { ptBR } from "date-fns/locale";
-import * as React from "react";
-import { format } from "date-fns";
-import { Calendar as CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { LegacyRef, forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
+import _DatePicker, { DatePickerProps, registerLocale } from "react-datepicker";
 
-export function DatePicker({ placeholder = "Data de ida" }) {
-  const [date, setDate] = React.useState<Date>();
+import "react-datepicker/dist/react-datepicker.css";
+
+interface InputProps {
+  error?: boolean;
+  errorMessage?: string;
+  className?: string;
+}
+
+function DatePicker(
+  { className, error, errorMessage, ...props }: InputProps,
+  ref: LegacyRef<HTMLInputElement> | undefined
+) {
+  const datePickerClassName = twMerge(
+    "rounded-lg border border-gray-300 bg-white p-2 text-sm font-normal text-primaryDarker placeholder-black placeholder-opacity-20 outline-none transition-all focus:ring-1 focus:ring-primary",
+    error ? "border-red-500" : "",
+    className
+  );
 
   return (
-    <Popover>
-      <PopoverTrigger asChild>
-        <Button
-          variant={"outline"}
-          className={cn(
-            "w-full justify-start border border-gray-300 text-primaryDarker bg-white text-left font-normal hover:bg-white",
-            !date && "text-black/20"
-          )}
-        >
-          <CalendarIcon className="mr-2 h-4 w-4" />
-          {date ? (
-            format(date, "PPP", { locale: ptBR })
-          ) : (
-            <span className="text-sm font-normal text-black/20 ">
-              {placeholder}
-            </span>
-          )}
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-full p-0">
-        <Calendar
-          mode="single"
-          selected={date}
-          onSelect={setDate}
-          initialFocus
-        />
-      </PopoverContent>
-    </Popover>
+    <div className="flex w-full flex-col">
+      <_DatePicker
+        dateFormat="dd/MM/yyyy"
+        locale="pt-BR"
+        wrapperClassName="w-full"
+        className={datePickerClassName}
+        enableTabLoop={false}
+        {...props}
+      />
+      {error && errorMessage && (
+        <div className="text-red-500 mt-1 text-xs">{errorMessage}</div>
+      )}
+    </div>
   );
 }
+
+export default forwardRef(DatePicker);
