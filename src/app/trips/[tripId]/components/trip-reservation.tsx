@@ -95,7 +95,7 @@ const TripReservation = ({
   return (
     <div className="px-5">
       <div className="flex flex-col pb-10  border-b border-grayLighter lg:min-w-[380px] lg:p-5 lg:border lg:rounded-lg lg:shadow-lg ">
-        <p className="text-xl hidden text-primaryDarker mb-4 lg:block">
+        <p className="text-xl hidden text-primaryDarker dark:text-primary-foreground mb-4 lg:block">
           <span className="font-semibold">R${pricePerDay}</span> / dia
         </p>
 
