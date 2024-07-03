@@ -42,8 +42,8 @@ const Header = () => {
             {status === "authenticated" && data.user && (
               <Image
                 src={data.user.image!}
-                width={40}
-                height={40}
+                width={36}
+                height={36}
                 alt={data.user.name!}
                 className="rounded-full"
               />
