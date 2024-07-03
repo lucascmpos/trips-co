@@ -53,7 +53,7 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
   if (!trip) return null;
 
   const handleBuyClick = async () => {
-    const res = await fetch("api/payment", {
+    const res = await fetch("/api/payment", {
       method: "POST",
       body: Buffer.from(
         JSON.stringify({
@@ -61,7 +61,6 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
           startDate: searchParams.get("startDate"),
           endDate: searchParams.get("endDate"),
           guests: Number(searchParams.get("guests")),
-          userId: (data?.user as any)?.id,
           totalPrice,
           coverImage: trip.coverImage,
           name: trip.name,
