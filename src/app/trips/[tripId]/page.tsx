@@ -3,11 +3,12 @@ import { db } from "@/lib/prisma";
 import Image from "next/image";
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
-import { TripHeader } from "./components/trip-header";
+
 import TripReservation from "./components/trip-reservation";
 import TripDescription from "./components/trip-description";
 import TripHighlights from "./components/trip-highlights";
 import TripLocation from "./components/trip-location";
+import TripHeader from "./components/trip-header";
 
 const getTripDetails = async (tripId: string) => {
   const trip = await db.trip.findUnique({
@@ -25,7 +26,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
   if (!trip) return null;
 
   return (
-    <div className="lg:container mx-auto">
+    <div className="lg:container mx-auto lg:px-40">
       <TripHeader trip={trip} />
 
       <TripReservation
