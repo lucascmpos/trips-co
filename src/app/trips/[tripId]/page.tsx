@@ -28,7 +28,11 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
     <div className="lg:container mx-auto">
       <TripHeader trip={trip} />
 
-      <TripReservation trip={trip} />
+      <TripReservation
+        maxGuests={trip.maxGuests}
+        tripStartDate={trip.startDate}
+        tripEndDate={trip.endDate}
+      />
 
       <TripDescription description={trip.description} />
 
