@@ -1,11 +1,11 @@
 "use server";
 import TripItem from "@/components/trip-item";
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { Trip } from "@prisma/client";
 import React from "react";
 
 async function getTrips() {
-  const trips = await prisma.trip.findMany({});
+  const trips = await db.trip.findMany({});
 
   return trips;
 }

@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
 const generateSearchQuery = (
@@ -76,7 +76,7 @@ export async function GET(request: Request) {
     );
   }
 
-  const trips = await prisma.trip.findMany({
+  const trips = await db.trip.findMany({
     where: generateSearchQuery(text, startDate, budget),
   });
 

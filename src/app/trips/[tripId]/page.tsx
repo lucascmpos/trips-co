@@ -1,5 +1,5 @@
 "use server";
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/prisma";
 import Image from "next/image";
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
@@ -10,7 +10,7 @@ import TripHighlights from "./components/trip-highlights";
 import TripLocation from "./components/trip-location";
 
 const getTripDetails = async (tripId: string) => {
-  const trip = await prisma.trip.findUnique({
+  const trip = await db.trip.findUnique({
     where: {
       id: tripId,
     },
