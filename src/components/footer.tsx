@@ -11,7 +11,7 @@ const Footer = () => {
 
       <a
         className="flex flex-row items-center justify-center gap-2 hover:text-primary"
-        href="https://github.com/lucascmpos/dev-food"
+        href="https://github.com/lucascmpos/trips-co"
         target="_blank"
       >
         <p>Feito por Lucas Campos</p>

@@ -46,7 +46,7 @@ const Header = () => {
             )}
 
             {status === "unauthenticated" && (
-              <CircleUser className="text-primary" size={36} />
+              <CircleUser className="text-grayPrimary" size={36} />
             )}
           </div>
         </DropdownMenuTrigger>
