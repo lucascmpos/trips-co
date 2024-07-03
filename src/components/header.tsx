@@ -20,15 +20,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import Link from "next/link";
 
 const Header = () => {
   const { data, status } = useSession();
   return (
     <div className="container mx-auto p-5 flex justify-between">
-      <div className="flex gap-2 justify-center items-center">
-        <Image src="/logo.svg" width={50} height={32} alt="Trips CO" />
+      <Link
+        href={"/"}
+        className="flex cursor-pointer gap-2 justify-center items-center"
+      >
+        <Image src="/logo.svg" width={40} height={32} alt="Trips CO" />
         <h1 className="text-2xl text-primary font-semibold ">trips.co</h1>
-      </div>
+      </Link>
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
@@ -84,17 +88,20 @@ const Header = () => {
               </h1>{" "}
               <Separator />
               <div className="flex flex-col">
-                <DropdownMenuItem className="gap-1 border cursor-pointer hover:bg-accent">
-                  <Plane size={24} />
-                  <h1>Minhas viagens</h1>
-                </DropdownMenuItem>
+                <Link href={"/my-trips"}>
+                  <Button className="gap-1 w-full text-md border cursor-pointer ">
+                    <Plane size={24} />
+                    <h1>Minhas viagens</h1>
+                  </Button>
+                </Link>
               </div>
               <Separator />
               <Button
                 onClick={() => {
                   signOut();
                 }}
-                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 bg-primaryDarker    text-white w-full hover:bg-primaryDarker/90 text-center text-base font-semibold    rounded-lg"
+                variant="outline"
+                className="py-2 px-4 cursor-pointer max-w-md w-full flex justify-center items-center gap-3 border-secondary  text-center text-md font-medium    rounded-lg"
               >
                 <LogOut size={22} />
                 Sair
