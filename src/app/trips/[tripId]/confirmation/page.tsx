@@ -6,16 +6,18 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import ptBR from "date-fns/locale/pt-BR";
-import { Button } from "@/components/ui/button";
 import { useSession } from "next-auth/react";
+import { useToast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
 
 const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
   const [trip, setTrip] = useState<Trip | null>(null);
   const [totalPrice, setTotalPrice] = useState<number | null>(null);
 
+  const { toast } = useToast();
   const searchParams = useSearchParams();
 
-  const { status } = useSession();
+  const { status, data } = useSession();
 
   const router = useRouter();
 
@@ -48,6 +50,38 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
   }, [params.tripId, router, searchParams, status]);
 
   if (!trip) return null;
+
+  const handleBuyClick = async () => {
+    const res = await fetch("http://localhost:3000/api/trips/reservation", {
+      method: "POST",
+      body: Buffer.from(
+        JSON.stringify({
+          tripId: params.tripId,
+          startDate: searchParams.get("startDate"),
+          endDate: searchParams.get("endDate"),
+          guests: Number(searchParams.get("guests")),
+          userId: (data?.user as any)?.id,
+          totalPaid: totalPrice,
+        })
+      ),
+    });
+
+    if (!res.ok) {
+      return toast({
+        title: "Erro",
+        description: "Ocorreu um erro, tente novamente.",
+        variant: "destructive",
+      });
+    }
+
+    router.push("/");
+
+    toast({
+      title: "Reserva realizada!",
+      description: "Sua viagem foi reservada com sucesso!",
+      variant: "success",
+    });
+  };
 
   const startDate = new Date(searchParams.get("startDate") as string);
 
@@ -112,7 +146,9 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
         </div>
       </div>
 
-      <Button className="w-full mt-8">Finalizar compra</Button>
+      <Button onClick={handleBuyClick} className="w-full mt-8">
+        Finalizar compra
+      </Button>
     </div>
   );
 };
