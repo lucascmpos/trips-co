@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <div className="container mx-auto p-5 flex justify-between">
       <div className="flex gap-2 justify-center items-center">
-        <Image src="/logo.svg" width={80} height={32} alt="Trips CO" />
+        <Image src="/logo.svg" width={50} height={32} alt="Trips CO" />
         <h1 className="text-2xl text-primary font-semibold ">trips.co</h1>
       </div>
 
