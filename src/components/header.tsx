@@ -6,7 +6,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { AlignJustify, CircleUser, Github, LogOut } from "lucide-react";
+import { AlignJustify, CircleUser, Github, LogOut, Plane } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import Image from "next/image";
 import React from "react";
@@ -18,6 +18,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
 const Header = () => {
   const { data, status } = useSession();
@@ -51,38 +53,52 @@ const Header = () => {
         <DropdownMenuContent className="hover:bg-none p-5">
           {status === "unauthenticated" ? (
             <div className="flex flex-col items-center justify-center gap-5 ">
-              <h2 className="font-semibold text-lg">Olá! Faça seu Login.</h2>
-              <DropdownMenuItem
+              <h2 className="font-semibold text-lg">Bem vindo!</h2>
+              <p className="text-sm">
+                Faça seu Login para poder aproveitar a{" "}
+                <span className="text-primary font-medium">trips.co</span>{" "}
+              </p>
+              <Button
                 onClick={() => {
                   signIn("google");
                 }}
-                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 border bg-white hover:bg-muted  w-full text-center text-base font-semibold focus:outline-none  rounded-lg"
+                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 border bg-white hover:bg-muted w-full text-grayPrimary text-center text-base font-semibold focus:outline-none  rounded-lg"
               >
                 <FcGoogle size={25} />
-              </DropdownMenuItem>
-              <DropdownMenuItem
+                <p>Entrar com Google</p>
+              </Button>
+              <Button
                 onClick={() => {
                   signIn("github");
                 }}
                 className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 bg-gray-600 hover:bg-gray-700   text-white w-full text-center text-base font-semibold    rounded-lg"
               >
                 <Github size={25} />
-              </DropdownMenuItem>
+                <p>Entrar com GitHub</p>
+              </Button>
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center gap-5 ">
-              <h1 className="font-semibold text-lg">
-                Olá, {data?.user?.name}!
+              <h1 className="font-medium text-lg">
+                Olá, <span className="font-semibold">{data?.user?.name}</span>!
               </h1>{" "}
-              <DropdownMenuItem
+              <Separator />
+              <div className="flex flex-col">
+                <DropdownMenuItem className="gap-1 border cursor-pointer hover:bg-accent">
+                  <Plane size={24} />
+                  <h1>Minhas reservas</h1>
+                </DropdownMenuItem>
+              </div>
+              <Separator />
+              <Button
                 onClick={() => {
                   signOut();
                 }}
-                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 bg-primaryDarker    text-white w-full hover:bg-primary text-center text-base font-semibold    rounded-lg"
+                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 bg-primaryDarker    text-white w-full hover:bg-primaryDarker/90 text-center text-base font-semibold    rounded-lg"
               >
                 Logout
                 <LogOut size={25} />
-              </DropdownMenuItem>
+              </Button>
             </div>
           )}
         </DropdownMenuContent>
