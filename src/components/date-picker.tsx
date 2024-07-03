@@ -8,7 +8,7 @@ import ptBR from "date-fns/locale/pt";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-registerLocale("pt-BR", ptBR);
+registerLocale("pt-BR", ptBR as any);
 
 interface InputProps extends ReactDatePickerProps {
   error?: boolean;

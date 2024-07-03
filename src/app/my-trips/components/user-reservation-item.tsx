@@ -30,7 +30,7 @@ const UserReservationItem = ({
     });
 
     if (!res.ok) {
-      toast({
+      return toast({
         title: "Erro ao cancelar reserva",
         description:
           "Ocorreu um erro ao tentar cancelar a reserva. Tente novamente mais tarde.",

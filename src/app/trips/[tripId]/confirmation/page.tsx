@@ -122,13 +122,13 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
 
           <div className="flex">
             <p className="text-primaryDarker font-medium">
-              {format(startDate, "dd 'de' MMMM", { locale: ptBR })}{" "}
+              {format(startDate, "dd 'de' MMMM", { locale: ptBR as any })}{" "}
             </p>
 
             <p className="text-primaryDarker font-medium">&nbsp;-&nbsp;</p>
 
             <p className="text-primaryDarker font-medium">
-              {format(endDate, "dd 'de' MMMM", { locale: ptBR })}
+              {format(endDate, "dd 'de' MMMM", { locale: ptBR as any })}
             </p>
           </div>
         </div>
