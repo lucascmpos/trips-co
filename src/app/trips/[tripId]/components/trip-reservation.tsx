@@ -94,7 +94,11 @@ const TripReservation = ({
 
   return (
     <div className="px-5">
-      <div className="flex flex-col pb-10  border-b border-grayLighter ">
+      <div className="flex flex-col pb-10  border-b border-grayLighter lg:min-w-[380px] lg:p-5 lg:border lg:rounded-lg lg:shadow-lg ">
+        <p className="text-xl hidden text-primaryDarker mb-4 lg:block">
+          <span className="font-semibold">R${pricePerDay}</span> / dia
+        </p>
+
         <div className="flex gap-4 ">
           <Controller
             name="startDate"
