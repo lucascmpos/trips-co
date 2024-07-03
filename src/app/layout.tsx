@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "FSW Trips",
-  description: "Sistema de Reserva de Viagens TOP!",
+  title: "trips.co",
+  description: "Reserva de viagens",
 };
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
               <Header />
             </div>
             <div className="flex-1 ">{children}</div>
-
+            <Toaster />
             <Footer />
           </div>
         </NextAuthProvider>
