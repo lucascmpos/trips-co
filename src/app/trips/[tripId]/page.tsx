@@ -29,6 +29,7 @@ const TripDetails = async ({ params }: { params: { tripId: string } }) => {
       <TripHeader trip={trip} />
 
       <TripReservation
+        pricePerDay={trip.pricePerDay as any}
         maxGuests={trip.maxGuests}
         tripStartDate={trip.startDate}
         tripEndDate={trip.endDate}
