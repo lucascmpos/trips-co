@@ -17,7 +17,7 @@ const RecommendedTrips = async () => {
     <div className="container mx-auto p-5">
       <div className="flex items-center justify-center ">
         <div className="w-full h-[1px] bg-grayLighter " />
-        <h2 className="font-medium px-5 text-grayPrimary whitespace-nowrap">
+        <h2 className="font-medium px-5 text-muted-foreground whitespace-nowrap">
           Destinos recomendados
         </h2>
         <div className="w-full h-[1px] bg-grayLighter " />

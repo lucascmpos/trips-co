@@ -20,7 +20,7 @@ function DatePicker(
   ref: LegacyRef<HTMLInputElement> | undefined
 ) {
   const datePickerClassName = twMerge(
-    "rounded-lg border border-gray-300 bg-white p-2 text-sm font-normal text-primaryDarker placeholder-black placeholder-opacity-20 outline-none transition-all focus:ring-1 focus:ring-primary",
+    "rounded-lg border border-gray-300  p-2 text-sm font-normal text-secondary-foreground placeholder-black placeholder-opacity-20 outline-none transition-all  dark:text-primary-foreground dark:placeholder-primary-foreground dark:border-secondary focus:ring-1 focus:ring-primary",
     error ? "border-red-500" : "",
     className
   );

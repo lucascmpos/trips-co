@@ -21,6 +21,7 @@ import {
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 import Link from "next/link";
+import { ThemeToggle } from "./ui/theme-toggle";
 
 const Header = () => {
   const { data, status } = useSession();
@@ -50,7 +51,7 @@ const Header = () => {
             )}
 
             {status === "unauthenticated" && (
-              <CircleUser className="text-grayPrimary" size={36} />
+              <CircleUser className="text-muted-foreground" size={36} />
             )}
           </div>
         </DropdownMenuTrigger>
@@ -66,7 +67,7 @@ const Header = () => {
                 onClick={() => {
                   signIn("google");
                 }}
-                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 border bg-white hover:bg-muted w-full text-grayPrimary text-center text-base font-semibold focus:outline-none  rounded-lg"
+                className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 border bg-white hover:bg-muted w-full text-muted-foreground text-center text-base font-semibold focus:outline-none  rounded-lg"
               >
                 <FcGoogle size={25} />
                 <p>Entrar com Google</p>
@@ -87,13 +88,14 @@ const Header = () => {
                 Olá, <span className="font-semibold">{data?.user?.name}</span>!
               </h1>{" "}
               <Separator />
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-2">
                 <Link href={"/my-trips"}>
                   <Button className="gap-1 w-full text-md border cursor-pointer ">
                     <Plane size={24} />
-                    <h1>Minhas viagens</h1>
+                    <h1 className="text-primary-foreground">Minhas viagens</h1>
                   </Button>
                 </Link>
+                <ThemeToggle />
               </div>
               <Separator />
               <Button

@@ -11,7 +11,7 @@ function SearchButton({
   ...props
 }: ButtonProps) {
   const variantClasses = {
-    primary: "bg-primary text-white hover:bg-primaryDarker",
+    primary: "bg-primary text-white hover:bg-secondary-foreground",
     outlined: "bg-transparent border-2 border-primary text-primary",
     danger:
       "text-red-500 border-red-500 border hover:bg-red-600 bg-transparent hover:text-white",

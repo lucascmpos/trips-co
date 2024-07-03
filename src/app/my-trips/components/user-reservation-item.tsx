@@ -62,12 +62,12 @@ const UserReservationItem = ({
           </div>
 
           <div className="flex flex-col">
-            <h2 className="text-xl text-primaryDarker font-semibold">
+            <h2 className="text-xl text-secondary-foreground font-semibold">
               {trip.name}
             </h2>
             <div className="flex items-center gap-1">
               <ReactCountryFlag countryCode={trip.countryCode} svg />
-              <p className="text-xs text-grayPrimary underline">
+              <p className="text-xs text-muted-foreground underline">
                 {trip.location}
               </p>
             </div>
@@ -75,7 +75,7 @@ const UserReservationItem = ({
         </div>
 
         <Separator />
-        <div className="flex flex-col gap-2 mt-5 text-primaryDarker">
+        <div className="flex flex-col gap-2 mt-5 text-secondary-foreground">
           <div className="flex justify-between">
             <h3 className="text-sm font-medium">Data</h3>
             <div className="flex items-center gap-1">
@@ -99,7 +99,7 @@ const UserReservationItem = ({
           </div>
 
           <div className="flex justify-between ">
-            <p className="text-primaryDarker font-medium text-sm mt-2">
+            <p className="text-secondary-foreground font-medium text-sm mt-2">
               Total:
             </p>
             <p className="font-medium text-sm">

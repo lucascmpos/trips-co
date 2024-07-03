@@ -91,7 +91,9 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
 
   return (
     <div className="container mx-auto  p-5">
-      <h1 className="font-semibold text-xl text-primaryDarker">Sua viagem</h1>
+      <h1 className="font-semibold text-xl text-secondary-foreground">
+        Sua viagem
+      </h1>
 
       <div className="flex flex-col p-5 mt-5 border  shadow-lg rounded-md">
         <div className="flex items-center gap-3 pb-5 border-b border-solid">
@@ -106,43 +108,49 @@ const TripConfirmation = ({ params }: { params: { tripId: string } }) => {
           </div>
 
           <div className="flex flex-col">
-            <h2 className="text-xl text-primaryDarker font-semibold">
+            <h2 className="text-xl text-secondary-foreground font-semibold">
               {trip.name}
             </h2>
 
             <div className="flex items-center  gap-1">
               <ReactCountryFlag countryCode={trip.countryCode} svg />
-              <p className="text-xs text-grayPrimary ">{trip.location}</p>
+              <p className="text-xs text-muted-foreground ">{trip.location}</p>
             </div>
           </div>
         </div>
 
         <div className="flex justify-between mt-3">
-          <p className="text-primaryDarker">Data:</p>
+          <p className="text-secondary-foreground">Data:</p>
 
           <div className="flex">
-            <p className="text-primaryDarker font-medium">
+            <p className="text-secondary-foreground font-medium">
               {format(startDate, "dd 'de' MMMM", { locale: ptBR as any })}{" "}
             </p>
 
-            <p className="text-primaryDarker font-medium">&nbsp;-&nbsp;</p>
+            <p className="text-secondary-foreground font-medium">
+              &nbsp;-&nbsp;
+            </p>
 
-            <p className="text-primaryDarker font-medium">
+            <p className="text-secondary-foreground font-medium">
               {format(endDate, "dd 'de' MMMM", { locale: ptBR as any })}
             </p>
           </div>
         </div>
 
         <div className="flex justify-between mt-3">
-          <p className="text-primaryDarker">Hóspedes:</p>
+          <p className="text-secondary-foreground">Hóspedes:</p>
 
-          <p className="text-primaryDarker font-medium">{guests} hóspedes</p>
+          <p className="text-secondary-foreground font-medium">
+            {guests} hóspedes
+          </p>
         </div>
 
         <div className="flex justify-between mt-3">
-          <p className="text-primaryDarker">Preço:</p>
+          <p className="text-secondary-foreground">Preço:</p>
 
-          <p className="text-primaryDarker font-medium">R$ {totalPrice}</p>
+          <p className="text-secondary-foreground font-medium">
+            R$ {totalPrice}
+          </p>
         </div>
       </div>
 
