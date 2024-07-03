@@ -8,6 +8,15 @@ interface TripHeaderProps {
 }
 
 export const TripHeader = ({ trip }: TripHeaderProps) => {
+  const formatDate = (date: Date) => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return `${day.toString().padStart(2, "0")}/${month
+      .toString()
+      .padStart(2, "0")}/${year}`;
+  };
+
   return (
     <div>
       <div className="relative h-[300px] w-full">
@@ -36,6 +45,17 @@ export const TripHeader = ({ trip }: TripHeaderProps) => {
           </span>{" "}
           por dia
         </p>
+
+        <div className="flex-col w-full gap-2 mt-1 ">
+          <p className="text-xs text-grayPrimary">
+            Data disponível para viagem:
+          </p>
+          <div className=" font-medium gap-1 text-primaryDarker flex">
+            <span className="text-xs">{formatDate(trip.startDate)} </span>
+            <span className="text-xs">até</span>
+            <span className="text-xs"> {formatDate(trip.endDate)}</span>
+          </div>
+        </div>
       </div>
     </div>
   );

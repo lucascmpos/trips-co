@@ -86,7 +86,7 @@ const Header = () => {
               <div className="flex flex-col">
                 <DropdownMenuItem className="gap-1 border cursor-pointer hover:bg-accent">
                   <Plane size={24} />
-                  <h1>Minhas reservas</h1>
+                  <h1>Minhas viagens</h1>
                 </DropdownMenuItem>
               </div>
               <Separator />
@@ -96,8 +96,8 @@ const Header = () => {
                 }}
                 className="py-2 px-4 cursor-pointer max-w-md flex justify-center items-center gap-3 bg-primaryDarker    text-white w-full hover:bg-primaryDarker/90 text-center text-base font-semibold    rounded-lg"
               >
-                Logout
-                <LogOut size={25} />
+                <LogOut size={22} />
+                Sair
               </Button>
             </div>
           )}
