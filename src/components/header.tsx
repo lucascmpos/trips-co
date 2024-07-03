@@ -90,9 +90,9 @@ const Header = () => {
               <Separator />
               <div className="flex flex-col gap-2">
                 <Link href={"/my-trips"}>
-                  <Button className="gap-1 w-full text-md border cursor-pointer ">
+                  <Button className="gap-1 w-full text-white text-md border cursor-pointer ">
                     <Plane size={24} />
-                    <h1 className="text-primary-foreground">Minhas viagens</h1>
+                    <h1 className="">Minhas viagens</h1>
                   </Button>
                 </Link>
                 <ThemeToggle />
