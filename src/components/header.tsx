@@ -26,7 +26,7 @@ import { ThemeToggle } from "./ui/theme-toggle";
 const Header = () => {
   const { data, status } = useSession();
   return (
-    <div className="container mx-auto p-5 flex justify-between">
+    <div className="container mx-auto p-5  flex justify-between">
       <Link
         href={"/"}
         className="flex cursor-pointer gap-2 justify-center items-center"

@@ -13,13 +13,15 @@ const QuickSearch = () => {
         <div className="w-full h-[1px] bg-grayLighter " />
       </div>
 
-      <div className="flex w-full justify-between mt-5 gap-2">
+      <div className="flex w-full justify-between lg:justify-center mt-5 gap-2 lg:mx-auto">
         <Link
           href={`/trips/search?text=hotel`}
           className="flex flex-col border rounded-lg p-2 w-1/4 cursor-pointer hover:bg-secondary items-center "
         >
           <Image src="/hotel-icon.png" width={32} height={32} alt="Hotel" />
-          <p className="text-sm text-muted-foreground  mt-5">Hotel</p>
+          <p className="text-sm text-muted-foreground lg:text-base   mt-5">
+            Hotel
+          </p>
         </Link>
 
         <Link
@@ -27,7 +29,9 @@ const QuickSearch = () => {
           className="flex flex-col border rounded-lg p-2 w-1/4 cursor-pointer hover:bg-secondary items-center "
         >
           <Image src="/farm-icon.png" width={32} height={32} alt="Fazenda" />
-          <p className="text-sm text-muted-foreground  mt-5">Fazenda</p>
+          <p className="text-sm text-muted-foreground lg:text-base mt-5">
+            Fazenda
+          </p>
         </Link>
 
         <Link
@@ -35,7 +39,9 @@ const QuickSearch = () => {
           className="flex flex-col border rounded-lg p-2 w-1/4 cursor-pointer hover:bg-secondary items-center"
         >
           <Image src="/cottage-icon.png" width={32} height={32} alt="Chale" />
-          <p className="text-sm text-muted-foreground  mt-5">Chalé</p>
+          <p className="text-sm text-muted-foreground lg:text-base mt-5">
+            Chalé
+          </p>
         </Link>
 
         <Link
@@ -43,7 +49,9 @@ const QuickSearch = () => {
           className="flex flex-col border rounded-lg p-2 w-1/4 cursor-pointer hover:bg-secondary items-center "
         >
           <Image src="/inn-icon.png" width={32} height={32} alt="Pousada" />
-          <p className="text-sm  text-muted-foreground  mt-5">Pousada</p>
+          <p className="text-sm  text-muted-foreground lg:text-base mt-5">
+            Pousada
+          </p>
         </Link>
       </div>
     </div>
