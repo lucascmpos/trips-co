@@ -59,7 +59,7 @@ const TripReservation = ({
           message: "Esta data já está reservada",
         });
 
-        setError("endDate", {
+        return setError("endDate", {
           type: "manual",
           message: "Esta data já está reservada",
         });
@@ -73,13 +73,11 @@ const TripReservation = ({
       }
 
       if (res.error.code === "INVALID_END_DATE") {
-        setError("endDate", {
+        return setError("endDate", {
           type: "manual",
           message: "Data final inválida",
         });
       }
-
-      return;
     }
   };
 
@@ -141,7 +139,12 @@ const TripReservation = ({
               value: true,
               message: "Número de hospedes é obrigatório",
             },
+            max: {
+              value: maxGuests,
+              message: `Número de hospedes deve ser menor ou igual a ${maxGuests}`,
+            },
           })}
+          type="number"
           placeholder={`Número de hospedes (max: ${maxGuests})`}
           className="mt-4"
           error={!!errors.guests}
