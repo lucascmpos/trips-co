@@ -47,6 +47,7 @@ The project was developed using the following technologies
 - Tailwind CSS
 - Figma
 - PostgreSQL
+- Stripe
 - Prisma ORM
 - Neon DB
 
