@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "trips.co",
-  description: "Reserva de viagens",
+  description: "Trips booking",
 };
 
 export default function RootLayout({
